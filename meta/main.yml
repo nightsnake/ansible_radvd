@@ -1,0 +1,16 @@
+galaxy_info:
+  role_name: radvd
+  author: imp1sh
+  description: configures radvd 
+  license: license (BSD, MIT)
+  min_ansible_version: 2.0
+  platforms:
+  - name: Alpine
+    version:
+    - all
+
+  galaxy_tags:
+  - radvd
+  - IPv6
+
+dependencies: []

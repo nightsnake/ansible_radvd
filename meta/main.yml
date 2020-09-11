@@ -12,5 +12,8 @@ galaxy_info:
   galaxy_tags:
   - radvd
   - IPv6
+  - nftwall
+  - firewall
+  - router
 
 dependencies: []

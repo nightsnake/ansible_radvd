@@ -1,6 +1,5 @@
-# imp1sh radvd
-Part of nftwall collection
-As you might have guessed, it's about setting up Router Advertisement Daemon.
+# radvd role
+by Night Snake. Based on imp1sh radvd
 
 ## Example to set variables:
 ```radvd_ifs:
@@ -8,14 +7,5 @@ As you might have guessed, it's about setting up Router Advertisement Daemon.
       prefixes:
             - prefix: "2001:470:7e68:1000::/64"
 ```
-## Example with more interfaces and maybe more prefixes:
-```radvd_ifs:
-   - if: "eth1"
-     prefixes:
-       - prefix: "2001:470:7e68:1000::/64"
-       - prefix: "2001:470:7e68:2000::/64"
-   - if: "eth2"
-     prefixes:
-       - prefix: "2001:470:7e68:3000::/64"
-```
-Adopted for Ubuntu 20.04+
+Adopted for Ubuntu 20.04+ and Debian 10+
+You can also set DNS servers and set some parameters (please see defaults/main.yml)

@@ -1,5 +1,5 @@
 - name: Install radvd
-  apk:
+  apt:
     name: radvd
     state: present
 - name: Install radvd template

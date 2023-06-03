@@ -1,0 +1,26 @@
+radvd_default_dns: "2a02:6b8::feed:0ff 2a02:6b8:0:1::feed:0ff"
+radvd_default_dns_lifetime: 10
+radvd_default_if_enabled: "on"
+radvd_default_if_minrtrint: 3
+radvd_default_if_maxrtrint: 10
+radvd_default_if_managed: "off"
+radvd_default_if_otherconf: "off"
+radvd_default_if_linkmtu: 1500
+radvd_default_if_prefix: "::/64"
+radvd_default_if_prefix_advonlink: "on"
+radvd_default_if_prefix_advautonomous: "on"
+radvd_default_if_prefix_advrouteraddr: "on"
+
+radvd_ifs:
+- if: "eth1"
+  enabled: "on"
+  minrtrint: 3
+  maxrtrint: 300
+  managed: "off"
+  otherconf: "off"
+  linkmtu: 1500
+  prefixes:
+    - prefix: "::/64"
+      advonlink: "on"
+      advautonomous: "on"
+      advrouteraddr: "on"

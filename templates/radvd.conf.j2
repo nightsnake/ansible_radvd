@@ -1,14 +1,20 @@
 {% for interface in radvd_ifs %}
 interface {{ interface.if }} { 
-        AdvSendAdvert {{ interface.enabled|default("on", true) }};
-        MinRtrAdvInterval {{ interface.minrtrint|default(3, true) }}; 
-        MaxRtrAdvInterval {{ interface.maxrtrint|default(10, true) }};
+        AdvSendAdvert {{ interface.enabled|default(radvd_default_if_enabled) }};
+        MinRtrAdvInterval {{ interface.minrtrint|default(radvd_default_if_minrtrint) }}; 
+        MaxRtrAdvInterval {{ interface.maxrtrint|default(radvd_default_if_maxrtrint) }};
+        AdvManagedFlag {{ interface.managed|default(radvd_default_if_managed) }};
+        AdvOtherConfigFlag  {{ interface.otherconf|default(radvd_default_if_otherconf) }};
+        AdvLinkMTU {{ interface.linkmtu|default(radvd_default_if_linkmtu) }};
 {% for prefix in interface.prefixes %}
-        prefix {{ prefix.prefix }} { 
-                AdvOnLink {{ prefix.advonlink|default("on", true) }}; 
-                AdvAutonomous {{ prefix.advautonomous|default("on", true) }}; 
-                AdvRouterAddr {{ prefix.advrouteraddr|default("on", true) }}; 
+        prefix {{ prefix.prefix|default(radvd_default_if_prefix) }} { 
+                AdvOnLink {{ prefix.advonlink|default(radvd_default_if_prefix_advonlink) }}; 
+                AdvAutonomous {{ prefix.advautonomous|default(radvd_default_if_prefix_advautonomous) }}; 
+                AdvRouterAddr {{ prefix.advrouteraddr|default(radvd_default_if_prefix_advrouteraddr) }}; 
         };
 {% endfor %}
+        RDNSS {{ interface.dns | default(radvd_default_dns)}} {
+                AdvRDNSSLifetime {{ dns.lifetime|default(radvd_default_dns_lifetime) }};        
+        };
 };
 {% endfor %}
